@@ -1,0 +1,84 @@
+import 'package:flutter/material.dart';
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  get controller => null;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(115, 97, 82, 81),
+        title: Text('Home', style: TextStyle(color: Colors.white)),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.black,
+                const Color.fromARGB(255, 22, 21, 21),
+                const Color.fromARGB(255, 52, 50, 50),
+                const Color.fromARGB(255, 66, 63, 63),
+              ],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+            ),
+          ),
+        ),
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz_rounded)),
+        ],
+        foregroundColor: Colors.white,
+      ),
+      body: Center(
+        child: Stack(
+          alignment: AlignmentDirectional.center,
+          children: [
+            Container(
+              height: 250,
+              width: 250,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(60),
+                boxShadow:[
+                  BoxShadow(
+                    offset: Offset(6,6),color: Colors.black,blurRadius: 10
+                  )
+                ]
+              ),
+            ),
+            Container(
+              height: 200,
+              width: 200,
+              decoration: BoxDecoration(
+                color: Colors.blueGrey,
+                borderRadius: BorderRadius.circular(180),
+              ),
+            ),
+            Container(
+              height: 190,
+              width: 190,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(180),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(180),
+                child: Image.network(
+                  "https://images.unsplash.com/photo-1575936123452-b67c3203c357?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
